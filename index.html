@@ -1,46 +1,102 @@
 <!DOCTYPE html>
-<html lang="pt/br">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Dev Log</title>
+
+<title>Blog do Vozinha</title>
+
 <style>
-         header{
-        background-color: rgb(17, 255, 29);
-        color:rgb(3, 1, 4);
-        border: 5px solid red;
-        padding: 16px; color: black;
-        text-align: center;
+header {
+background-color: rgb(136, 39, 134);
+color: rgb(243, 194, 16);
+text-align: center;
+max-width: 800px;
+margin: 0 auto;
+border: 5px solid red;
+padding: 16px;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
-main{
-        color: black;
-        border: 5px solid rgb(147, 39, 39);
-        padding: 16px;
-        background-color: rgb(17, 255, 29);
+
+main {
+background-color: black;
+color: white;
+max-width: 800px;
+margin: 0 auto;
+padding: 16px;
 }
-p {
-        color: rgb(21, 21, 102);
-        font-size: 16px;
-        line-height: 1.6;
+
+img {
+width: 220px;
+height: 160px;
+object-fit: cover;
 }
-.autor {
-        font-weight: bold;
-        color: rgb(24, 116, 197);
+
+.artigo-autor {
+font-weight: bold;
+}
+
+button {
+cursor: pointer;
+padding: 8px 12px;
+font-size: 18px;
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
-<h1>Registrando minha jornada dev.</h1>
-<p>Explore meus projetos e aprendizados</p>
+<h1>Club do Vozinha Destruidor de Crack</h1>
+<p>
+Descubra mais sobre o goleiro que fecha o gol
+da seleção de Cabo Verde.
+</p>
 </header>
 
 <main>
-<h2> Bem-vindo! Acompanhe o desenvolvimento dos meus projetos</h2>
+<img
+src="Gemini_Generated_Image_qiubxhqiubxhqiub.png"
+alt="Imagem do Vozinha"
+>
 
-<p>Por Pietro Perandré</p>
+<div>
+<h2>Boas-vindas</h2>
+<p>Seja bem-vindo ao site do Vozinha!</p>
+<p class="artigo-autor">Por: Gabriel Tanaka</p>
 
+<button type="button">
+<button>❤️ <span>0</span></button>
+<button>🤏<span>0</span></button>
+</button>
+</div>
+
+<img
+src="Gemini_Generated_Image_qiubxhqiubxhqiub.png"
+alt="Imagem do Vozinha"
+>
+
+<div>
+<h2>Boas-vindas</h2>
+<p>Seja bem-vindo ao site do Vozinha!</p>
+<p class="artigo-autor">Por: Gabriel Tanaka</p>
+
+<button type="button">
+❤️ <span>0</span>
+</button>
+</div>
 </main>
+
+<script>
+const botao = document.querySelector("main button");
+
+botao.addEventListener("click", botaoClicado);
+
+function botaoClicado() {
+const texto = botao.querySelector("span");
+texto.textContent = Number(texto.textContent) + 1;
+}
+</script>
 </body>
 </html>
