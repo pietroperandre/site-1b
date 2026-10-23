@@ -1,73 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Meu blog</title>
-        <style>
-            header{
-                background-color: rgb(12, 5, 54);
-                color: azure;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-                border: 5px solid red;
-                padding: 16px;
-            }
-            main{
-                background-color: aliceblue;
-                color: blue;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-                border: 5px solid red;
-                padding: 16px;
-                display: flex;
-            }
-            img{
-                    width: 80px;
-                    height: 80px;
-           
-            }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CR7 · O Blog do Fenômeno</title>
+<style>
+:root{
+  --bg:#07070c; --card:#12121c; --txt:#f2f2f7; --mut:#9a9ab0;
+  --red:#e10600; --green:#046a38; --gold:#ffc72c;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
 
-            .artigo-autor {
-                font-weight: bold;
-            }
+/* HERO */
+header{
+  position:relative;text-align:center;padding:90px 20px 70px;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(225,6,0,.35),transparent 60%),
+    linear-gradient(135deg,var(--green) 0%,#0a0a14 55%,var(--red) 100%);
+  border-bottom:4px solid var(--gold);
+}
+header::after{content:"7";position:absolute;right:-20px;bottom:-90px;font-size:420px;font-weight:900;color:rgba(255,255,255,.05);line-height:1;pointer-events:none}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:4px 14px;border-radius:99px;font-size:.8rem;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(3.5rem,14vw,8rem);font-weight:900;letter-spacing:-3px;line-height:1;margin:18px 0 8px;
+  background:linear-gradient(180deg,#fff,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 24px rgba(225,6,0,.5))}
+header p{color:#e8e8f0;font-size:1.15rem;max-width:560px;margin:0 auto}
+.cta{display:inline-block;margin-top:28px;padding:14px 34px;background:var(--gold);color:#111;font-weight:800;border-radius:99px;text-decoration:none;transition:.25s;box-shadow:0 0 0 0 rgba(255,199,44,.6);animation:pulse 2s infinite}
+.cta:hover{transform:translateY(-3px) scale(1.05)}
+@keyframes pulse{70%{box-shadow:0 0 0 18px rgba(255,199,44,0)}100%{box-shadow:0 0 0 0 rgba(255,199,44,0)}}
 
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Clube de Ciências Paulo Sergio Bretones.</h1>
-            <p> Venha se apaixonar pela Astronomia.</p>
-        </header>
+/* LAYOUT */
+section,main{max-width:900px;margin:0 auto;padding:60px 20px}
+h2.titulo{font-size:2rem;margin-bottom:28px;text-transform:uppercase;letter-spacing:2px;border-left:6px solid var(--red);padding-left:14px}
 
-        <main>
-           
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJbTpEWZYXjcrifA0X8PBFeqHOXvUcsQIVIfc6x7Flw&s=10" alt="Três jovens do clube de ciências observam o céu noturno estrelado ao lado de um telescópio. No topo da imagem, lê-se o título Clube de Ciências: Astronomia">
-            <div>
-                <h2>Meu primeiro post</h2>
-                <p>Sejam bem vindos ao Clube de Ciências do Colégio Branca da Mota Fernandes. Aqui irei compartilhar os trabalhos dos alunos que participam dos encontros.</p>
-                <p class="artigo-autor">Por: Flávia Henrique</p>
-                <button>👍 <span>0</span></button>
-                <button>👎 ​<span>0</span></button>
-            </div>
-        <main>
-       
-</body>
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.stat{background:var(--card);border:1px solid #23233a;border-radius:16px;padding:26px 14px;text-align:center;transition:.3s}
+.stat:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 12px 30px rgba(255,199,44,.15)}
+.stat b{display:block;font-size:2.6rem;color:var(--gold);line-height:1.1}
+.stat span{color:var(--mut);font-size:.9rem}
+
+/* TIMELINE */
+.timeline{border-left:3px solid var(--red);padding-left:24px;display:grid;gap:22px}
+.clube{position:relative;background:var(--card);padding:16px 20px;border-radius:12px}
+.clube::before{content:"";position:absolute;left:-35px;top:22px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid var(--bg)}
+.clube strong{color:var(--gold)}
+.clube small{color:var(--mut);display:block}
+
+/* POSTS */
+.post{background:var(--card);border:1px solid #23233a;border-radius:18px;padding:26px;margin-bottom:24px;transition:.3s}
+.post:hover{border-color:var(--red);box-shadow:0 10px 36px rgba(225,6,0,.18)}
+.post h3{font-size:1.5rem;margin-bottom:8px}
+.post p{color:#d6d6e4;margin-bottom:10px}
+.artigo-autor{font-weight:bold;color:var(--gold)}
+.acoes{display:flex;gap:10px;margin-top:14px}
+button{background:#1c1c2b;color:var(--txt);border:1px solid #33334d;padding:9px 18px;border-radius:99px;font-size:1rem;cursor:pointer;transition:.2s}
+button:hover{background:var(--red);border-color:var(--red);transform:scale(1.08)}
+button:active{transform:scale(.92)}
+
+/* FRASE */
+blockquote{max-width:760px;margin:0 auto;text-align:center;font-size:1.5rem;font-style:italic;padding:50px 20px;color:var(--gold)}
+blockquote small{display:block;color:var(--mut);font-size:.9rem;margin-top:10px;font-style:normal}
+
+footer{text-align:center;padding:40px 20px;color:var(--mut);border-top:1px solid #1d1d2e;font-size:.9rem}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag">⚽ O Blog do Fenômeno</span>
+  <h1>CR7</h1>
+  <p>Cristiano Ronaldo: do menino de Madeira ao maior goleador da história do futebol.</p>
+  <a class="cta" href="#posts">Ler os posts 🔥</a>
+</header>
+
+<section class="reveal">
+  <h2 class="titulo">Os números</h2>
+  <div class="stats">
+    <div class="stat"><b data-n="900" data-plus>0</b><span>gols na carreira</span></div>
+    <div class="stat"><b data-n="5">0</b><span>Bolas de Ouro</span></div>
+    <div class="stat"><b data-n="5">0</b><span>Champions League</span></div>
+    <div class="stat"><b data-n="450">0</b><span>gols pelo Real Madrid</span></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2 class="titulo">A trajetória</h2>
+  <div class="timeline">
+    <div class="clube"><strong>Sporting</strong><small>Lisboa · onde tudo começou</small></div>
+    <div class="clube"><strong>Manchester United</strong><small>Primeira Bola de Ouro (2008)</small></div>
+    <div class="clube"><strong>Real Madrid</strong><small>Maior artilheiro da história do clube</small></div>
+    <div class="clube"><strong>Juventus</strong><small>Campeão italiano</small></div>
+    <div class="clube"><strong>Manchester United</strong><small>O retorno</small></div>
+    <div class="clube"><strong>Al Nassr</strong><small>Nova fase na Arábia Saudita</small></div>
+  </div>
+</section>
+
+<blockquote class="reveal">
+  “Talento sem trabalho não é nada.”
+  <small>Frase atribuída a Cristiano Ronaldo</small>
+</blockquote>
+
+<main id="posts">
+  <h2 class="titulo reveal">Posts</h2>
+
+  <article class="post reveal">
+    <h3>Meu primeiro post</h3>
+    <p>Sejam bem-vindos ao blog do CR7! Aqui você vai encontrar curiosidades, momentos inesquecíveis e a história do jogador que mudou o futebol com disciplina, dedicação e muitos gols.</p>
+    <p class="artigo-autor">Por: Pietro Perandre</p>
+    <div class="acoes">
+      <button>👍 <span>0</span></button>
+      <button>👎 <span>0</span></button>
+    </div>
+  </article>
+
+  <article class="post reveal">
+    <h3>A máquina de treinar</h3>
+    <p>Dentro e fora de campo, Cristiano é famoso pela rotina rígida: treino, alimentação e descanso levados a sério. É por isso que ele segue competindo em alto nível por tantos anos.</p>
+    <p class="artigo-autor">Por: Pietro Perandre</p>
+    <div class="acoes">
+      <button>👍 <span>0</span></button>
+      <button>👎 <span>0</span></button>
+    </div>
+  </article>
+
+  <article class="post reveal">
+    <h3>Euro 2016: a glória com Portugal</h3>
+    <p>Mesmo lesionado na final, ele virou o líder do banco de reservas e viu Portugal conquistar o título europeu. Um dos momentos mais emocionantes da sua história.</p>
+    <p class="artigo-autor">Por: Pietro Perandre</p>
+    <div class="acoes">
+      <button>👍 <span>0</span></button>
+      <button>👎 <span>0</span></button>
+    </div>
+  </article>
+</main>
+
+<footer>SIUUUU! 🐐 · Blog feito por Pietro Perandre, para fãs do CR7</footer>
+
 <script>
-  const botoes = document.querySelectorAll("main button");
-   botoes.forEach(function (botao) {
-        botao.addEventListener("click", botaoClicado);
-
-        function botaoClicado() {
-            console.log("fui clicado");
-            let texto = botao.querySelector("span");
-            texto.textContent++;
-        }
+  // Botões de like / dislike
+  const botoes = document.querySelectorAll(".post button");
+  botoes.forEach(function (botao) {
+    botao.addEventListener("click", function () {
+      botao.querySelector("span").textContent++;
     });
-   
+  });
+
+  // Contadores animados
+  function contar(el) {
+    const alvo = +el.dataset.n, mais = "plus" in el.dataset;
+    let atual = 0;
+    const passo = Math.max(1, Math.ceil(alvo / 70));
+    const t = setInterval(function () {
+      atual = Math.min(alvo, atual + passo);
+      el.textContent = atual + (atual === alvo && mais ? "+" : "");
+      if (atual === alvo) clearInterval(t);
+    }, 20);
+  }
+
+  // Aparecer ao rolar a página
+  const obs = new IntersectionObserver(function (itens) {
+    itens.forEach(function (i) {
+      if (!i.isIntersecting) return;
+      i.target.classList.add("on");
+      i.target.querySelectorAll("[data-n]").forEach(contar);
+      obs.unobserve(i.target);
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll(".reveal").forEach(function (e) { obs.observe(e); });
 </script>
-
-
+</body>
 </html>
